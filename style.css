@@ -51,7 +51,7 @@ body {
   font-size: 3rem;
   border-radius: var(--btn-border-radius);
   background-color: #505050;
-  padding-inline: calc(var(--calc-padding) * 3 + 5px);
+  padding-inline: calc(var(--calc-padding) * 2);
 }
 
 button {
