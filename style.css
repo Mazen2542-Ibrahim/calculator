@@ -1,0 +1,106 @@
+:root {
+  --button-width-lg: 90px;
+  --button-width-sm: 80px;
+  --gap: 10px;
+  --gap-sm: 8px;
+  --background-clr: #1c1c1c;
+  --default-btn-clr: #505050;
+  --operater-btn-clr: #ff9500;
+  --top-btn-clr: #d4d4d2;
+  --text-clr: #ffffff;
+  --calc-padding: 15px;
+  --input-size: 3rem;
+  --btn-border-radius: 20px;
+  --font-family: Helvetica, Arial, sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100dvh;
+  width: 100dvw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family);
+}
+
+.calculator {
+  width: 25rem;
+  min-height: 40rem;
+  display: grid;
+  gap: var(--gap);
+  background-color: var(--background-clr);
+  color: var(--text-clr);
+  border-radius: var(--btn-border-radius);
+  padding: var(--calc-padding);
+}
+
+.input {
+  height: 10rem;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  font-size: 3rem;
+  border-radius: var(--btn-border-radius);
+  background-color: #505050;
+  padding-inline: calc(var(--calc-padding) * 3 + 5px);
+}
+
+button {
+  background-color: var(--default-btn-clr);
+  color: var(--text-clr);
+  border: 0;
+  height: var(--button-width-lg);
+  cursor: pointer;
+  border-radius: var(--btn-border-radius);
+  font-size: 2rem;
+  transition: 300ms ease;
+}
+
+button:active {
+  opacity: 0.7;
+}
+
+.row {
+  touch-action: manipulation;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+}
+
+.row:last-child button:where(:first-child) {
+  grid-column: span 2;
+}
+
+.row button:last-child {
+  background-color: var(--operater-btn-clr);
+}
+
+.row:nth-child(2) button:not(:last-child) {
+  background-color: var(--top-btn-clr);
+  color: var(--background-clr);
+}
+
+@media (max-width: 500px) {
+  .calculator {
+    min-width: 22rem;
+    min-height: fit-content;
+    gap: var(--gap-sm);
+  }
+
+  button {
+    height: var(--button-width-sm);
+  }
+
+  .row {
+    gap: var(--gap-sm);
+  }
+}
